@@ -5,7 +5,7 @@
 
 # Go Barber
 
-> Aplicação para agendamento de serviços de corte de cabelo, ministrado pela Rocketseat
+> Aplicação para agendamento de serviços de corte de cabelo ministrado pela Rocketseat.
 
 **Pontos importantes**
 
