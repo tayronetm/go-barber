@@ -13,23 +13,10 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest}) => {
   const [hasValue, setHasValue] = useState(false);
   const { fieldName, defaultValue, error, registerField } = useField(name);
 
-  //Executada apenas uma vez utilizar sempre que 
-  //for preciso criar uma função dentro do componente
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
 
-    // if (inputRef.current?.value) {
-    //   setHasValue(true);
-    // } else {
-    //   setHasValue(false);
-    // }
-
-    //suggar (Se o input ref tiver valor, true senão false)
     setHasValue(!!inputRef.current?.value)
-  }, [])
-
-  const handleInputFocus = useCallback(() => {
-    setIsFocused(false)
   }, [])
 
   useEffect(() => {
@@ -49,6 +36,8 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest}) => {
       defaultValue={defaultValue}
       ref={inputRef} 
       {...rest}/>
+
+      {error}
     </Container>
   )
 }
