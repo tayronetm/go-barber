@@ -11,21 +11,21 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
       background: #232129;
       border-radius: 10px;
+      border: 2px solid #212329;
       padding: 16px;
       width: 100%;
-      display: flex;
       align-items: center;
-      
-      border: 2px solid #232129;
+      display: flex;
       color: #666360;
-
+      
       & + div {
         margin-top: 8px;
       }
       
-      ${props => props.isError && css `
-        color: #c53030;
-      `}
+      ${(props) => props.isError && css`
+      border-color: #c53030;
+      font-size: 12px;
+    `}
 
       ${props => props.isFocused && css `
         color: #ff9000;
@@ -45,9 +45,14 @@ export const Container = styled.div<ContainerProps>`
         color: #666360;
       }
     }
-    svg  {
-      margin-right: 16px;
-    }
+    svg {
+    margin-right: 16px;
+    ${(props) =>
+      props.hasValue &&
+      css`
+        color: #ff9000;
+      `}
+  }
 `;
 
 export const Error = styled(Tooltip)`
